@@ -24,9 +24,10 @@ create user secretaria password 'postdba';
 grant select on cliente, vendedor to secretaria;
 
 -- 2 b) Criar um usuário denominado vendedor que possui os direitos de atualizar, criar e visualizar os dados
---na tabela de CLIENTE; criar, atualizar, visualizar e apagar dados da tabela de PEDIDO, atualizar, criar
+--na tabela de CLIENTE; criar, atualizar, visualizar e apagar dados da tabela de PEDIDO; atualizar, criar
 --e visualizar os dados na tabela de ITEM_PEDIDO e atualizar e visualizar dados da tabela PRODUTO.
 create user vendedor password 'postdba';
+grant select, update, insert on cliente to vendedor;
 grant select, update, insert, delete on pedido to vendedor;
 grant select, update, insert  on item_pedido to vendedor;
 grant select, update on produto to vendedor;
@@ -34,5 +35,6 @@ grant select, update on produto to vendedor;
 --3 c) Criar um usuário gerente podendo visualizar, inserir, atualizar e deletar dados das tabelas do banco de
 --dados SIGASYS.
 create user gerente password 'postdba';
--- o usuário postges deve estar dentro do BD sigasys
+
+-- o usuário postges DEVE ESTAR DENTRO do BD sigasys
 grant ALL PRIVILEGES on ALL TABLES IN SCHEMA PUBLIC to gerente;
