@@ -4,6 +4,7 @@ create index idx_pedido_cliente on pedido (codigo_cliente);
 create index idx_pedido_vendedor on pedido (codigo_vendedor);
 
 create index idx_itempedido_pedido on item_pedido (num_pedido);
+create index idx_itempedido_produto on item_pedido (codigo_produto);
 
 2) Errada
 
